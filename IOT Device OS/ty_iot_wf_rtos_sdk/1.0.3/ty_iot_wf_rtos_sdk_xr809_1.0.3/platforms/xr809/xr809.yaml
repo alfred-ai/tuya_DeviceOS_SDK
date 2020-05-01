@@ -1,0 +1,35 @@
+spec:
+  name: xr809
+  version: 1.2.1
+  summary: embed module created by embedded-cli.
+  homepage: YOUR_HOMEPAGE
+  license:
+    type: MIT
+    file: LICENSE
+  author:
+    name: embedCI
+    email: embed@tuya.com
+  source:
+    git: https://code.registry.wgine.com/hardware_wifi_soc/xr809.git
+    tag: 1.2.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

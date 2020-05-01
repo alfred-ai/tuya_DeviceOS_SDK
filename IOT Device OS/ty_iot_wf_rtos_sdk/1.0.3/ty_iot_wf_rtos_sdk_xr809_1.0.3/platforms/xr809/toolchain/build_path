@@ -1,0 +1,2 @@
+export TUYA_SDK_TOOLCHAIN_ZIP=gcc-arm-none-eabi-4_9-2015q2.tgz
+export TUYA_SDK_BUILD_PATH=gcc-arm-none-eabi-4_9-2015q2/bin/arm-none-eabi-

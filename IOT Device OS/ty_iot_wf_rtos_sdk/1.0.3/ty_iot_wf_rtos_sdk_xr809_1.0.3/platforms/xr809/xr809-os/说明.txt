@@ -1,0 +1,55 @@
+ota压缩升级步骤：
+1）重新编译BootLoader
+  1. 在project\bootloader\gcc\localconfig.mk中设置 export __CONFIG_IMG_COMPRESS := y
+  2. 进入project\bootloader\gcc，执行：make build_clean; make build
+  
+2）编译tuya工程
+  1. 在\project\tuya\gcc\localconfig.mk中设置 export __CONFIG_IMG_COMPRESS := y
+  2. 进入\project\tuya\gcc，执行：make build_clean; make build
+  
+3）打包压缩文件
+  1. 进入\project\tuya\gcc，执行：make image_xz
+  2. 打包生成的ota压缩image为：xr_system_img_xz.img
+  
+image_cfg配置说明：
+1.在image_cfg中，新增加了配置选项“image”，需要配置image的最大值和压缩后的最大值，如下所示：
+{
+    "magic"   :"AWIH",
+    "version" :"0.3",
+    "OTA"     :{"addr": "1016K", "size": "4K"},
+    "image"   :{"max_size": "1012K", "xz_max_size": "700K"},
+    "count"   :8,
+    "section" :[
+		{"id": "0xa5ff5a00", "bin" :"boot.bin",	"cert": "null",	"flash_offs": "0K",	"sram_offs": "0x0005a000", "ep": "0x0005a101", "attr":"0x1"},
+		{"id": "0xa5fe5a01", "bin" :"app.bin",	"cert": "null",	"flash_offs": "40K",	"sram_offs": "0x00010000", "ep": "0x00010101", "attr":"0x1"},
+		{"id": "0xa5fd5a02", "bin" :"app_xip.bin",	"cert": "null",	"flash_offs": "188K",	"sram_offs": "0xffffffff", "ep": "0xffffffff", "attr":"0x2"},
+		{"id": "0xa5fc5a03", "bin" :"net.bin.xz",	"cert": "null",	"flash_offs": "569K",	"sram_offs": "0x60000000", "ep": "0xffffffff", "attr":"0x11"},
+		{"id": "0xa5fb5a04", "bin" :"net_ap.bin.xz",	"cert": "null",	"flash_offs": "694K",	"sram_offs": "0x60000000", "ep": "0xffffffff", "attr":"0x11"},
+		{"id": "0xa5fa5a05", "bin" :"wlan_bl.bin",	"cert": "null",	"flash_offs": "834K",	"sram_offs": "0xffffffff", "ep": "0xffffffff", "attr":"0x1"},
+		{"id": "0xa5f95a06", "bin" :"wlan_fw.bin",	"cert": "null",	"flash_offs": "837K",	"sram_offs": "0xffffffff", "ep": "0xffffffff", "attr":"0x1"},
+		{"id": "0xa5f85a07", "bin" :"wlan_sdd.bin",	"cert": "null",	"flash_offs": "965K",	"sram_offs": "0xffffffff", "ep": "0xffffffff", "attr":"0x1"}
+	]
+}
+
+max_size：image的最大值，大小需要和prj_config.h中的宏PRJCONF_IMG_MAX_SIZE一样，比如最大值为1012K（备注：必须为4K的倍数，4K对齐）
+xz_max_size：image压缩后的最大值，比如压缩后最大为700K（备注：必须为4K的倍数，4K对齐）
+
+2.新增压缩image的image_cfg文件
+用于将压缩后的image文件打包成一个新的image文件
+新增的image_cfg文件会在原来的image_cfg名上增加_img_xz后缀，比如原来的文件名是：image_sta_ap_xip.cfg，新增的文件名为：image_sta_ap_xip_img_xz.cfg
+
+{
+    "magic"   :"AWIH",
+    "version" :"0.3",
+    "OTA"     :{"addr": "1016K", "size": "4K"},
+    "extern"  :{"chk_ota_area": "true", "add_ota_area":"flase","verify":"md5"},
+    "count"   :1,
+    "section" :[
+        {"id": "0xa5fe5a01", "bin": "image.xz",   "cert": "null", "flash_offs": "0K",   "sram_offs": "0xffffffff", "ep": "0xffffffff", "attr": "0x11"}
+    ]
+}
+
+需要增加“extern”选项
+chk_ota_area：true为对image进行校验，false为不校验
+add_ota_area：校验时是否添加ota区域信息，默认是不添加
+verify：校验方式，有crc32 md5 sha1 sha256四种校验方式

@@ -1,0 +1,194 @@
+Makefile:23: xr809_common 1.0.1
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/src/tuya_iot/../tuya_iot/src/tuya_iot_sdk/com_sdk/tuya_iot_com_api.c:44:22: warning: 'p_global_str1' defined but not used [-Wunused-variable]
+ STATIC CONST CHAR_T *p_global_str1 = TARGET_PLATFORM;
+                      ^
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/src/tuya_iot/../tuya_iot/src/tuya_iot_sdk/com_sdk/tuya_iot_com_api.c:45:15: warning: 'p_global_str2' defined but not used [-Wunused-variable]
+ STATIC CHAR_T p_global_str2[] = PROJECT_NAME;
+               ^
+In file included from ../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:13:0:
+../../../project/tuya/tuya_common/include/driver/tuya_led.h:64:79: warning: type defaults to 'int' in declaration of 'flh_ms_sumtime'
+                                         IN CONST USHORT_T flh_mstime,IN CONST flh_ms_sumtime);
+                                                                               ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'ty_uart_send':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:376:12: warning: unused variable 'i' [-Wunused-variable]
+     UINT_T i = 0;
+            ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'ty_msg_send':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:416:12: warning: unused variable 'i' [-Wunused-variable]
+     UINT_T i = 0;
+            ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'get_dev_info':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:569:29: warning: pointer targets in passing argument 1 of 'cJSON_Parse' differ in signedness [-Wpointer-sign]
+   cJSON *root = cJSON_Parse(p_data);
+                             ^
+In file included from /mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/adapter_platform.h:23:0,
+                 from ../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:8:
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/utilities/cJSON.h:68:15: note: expected 'const char *' but argument is of type 'UCHAR_T *'
+ extern cJSON *cJSON_Parse(const char *value);
+               ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'recv_work_mode':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:640:12: warning: the address of 'dev_sw_ver' will always evaluate as 'true' [-Waddress]
+         if(dev_sw_ver) {
+            ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:641:13: warning: implicit declaration of function 'is_valid_version' [-Wimplicit-function-declaration]
+             if(0 == is_valid_version((CHAR_T *)dev_sw_ver)) {
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'sync_dev_ver_cb':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:672:5: warning: implicit declaration of function 'http_gw_update_version_v41' [-Wimplicit-function-declaration]
+     op_ret = http_gw_update_version_v41();
+     ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:676:9: warning: implicit declaration of function 'wd_gw_desc_if_write' [-Wimplicit-function-declaration]
+         wd_gw_desc_if_write(&(get_gw_cntl()->gw_if));
+         ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'upgrade_file_cb':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:740:23: warning: unused variable 'i' [-Wunused-variable]
+     UCHAR_T icnt = 0, i = 0;
+                       ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'get_lklv_data':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:887:40: warning: pointer targets in passing argument 2 of 'long_to_byte' differ in signedness [-Wpointer-sign]
+             long_to_byte(nxt->valueint,&data[i]); //V
+                                        ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:857:13: note: expected 'UCHAR_T *' but argument is of type 'CHAR_T *'
+ STATIC VOID long_to_byte(INT_T val, UCHAR_T *out)
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:869:13: warning: unused variable 'type' [-Wunused-variable]
+     UCHAR_T type = 0x00;
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'syn_weather_data':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:922:39: warning: pointer targets in passing argument 2 of 'get_lklv_data' differ in signedness [-Wpointer-sign]
+     if(WM_FAIL == get_lklv_data(param,buf+1,&len)) {
+                                       ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:866:14: note: expected 'CHAR_T *' but argument is of type 'UCHAR_T *'
+ STATIC INT_T get_lklv_data(IN CHAR_T *jstr,OUT CHAR_T *data, OUT INT_T *dlen)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:922:45: warning: pointer targets in passing argument 3 of 'get_lklv_data' differ in signedness [-Wpointer-sign]
+     if(WM_FAIL == get_lklv_data(param,buf+1,&len)) {
+                                             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:866:14: note: expected 'INT_T *' but argument is of type 'UINT_T *'
+ STATIC INT_T get_lklv_data(IN CHAR_T *jstr,OUT CHAR_T *data, OUT INT_T *dlen)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'recv_func_test':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1280:5: warning: implicit declaration of function 'wd_gw_base_if_read' [-Wimplicit-function-declaration]
+     wd_gw_base_if_read(&gw_data);
+     ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'recv_mem_check':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1335:30: warning: pointer targets in passing argument 3 of 'ty_uart_send' differ in signedness [-Wpointer-sign]
+     ty_uart_send(fr_type, 4, buf);
+                              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:374:14: note: expected 'UCHAR_T *' but argument is of type 'CHAR_T *'
+ STATIC INT_T ty_uart_send(UCHAR_T fr_type, UINT_T len, UCHAR_T *data)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'send_wf_signal':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1343:43: warning: pointer targets in passing argument 3 of 'ty_uart_send' differ in signedness [-Wpointer-sign]
+         ty_uart_send(GET_WF_SIGAL_CMD, 1, &rssi);
+                                           ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:374:14: note: expected 'UCHAR_T *' but argument is of type 'SCHAR_T *'
+ STATIC INT_T ty_uart_send(UCHAR_T fr_type, UINT_T len, UCHAR_T *data)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1348:39: warning: pointer targets in passing argument 3 of 'ty_uart_send' differ in signedness [-Wpointer-sign]
+     ty_uart_send(GET_WF_SIGAL_CMD, 1, &rssi);
+                                       ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:374:14: note: expected 'UCHAR_T *' but argument is of type 'SCHAR_T *'
+ STATIC INT_T ty_uart_send(UCHAR_T fr_type, UINT_T len, UCHAR_T *data)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'recv_prod_test':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1362:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'get_wifi_state':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1460:9: warning: 'return' with a value, in function returning void
+         return 0;
+         ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'ty_get_enum_str':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1574:5: warning: pointer targets in return differ in signedness [-Wpointer-sign]
+     return dp_cntl->prop.prop_enum.pp_enum[enum_id];
+     ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'ty_get_enum_id':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1604:20: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+         if( strcmp(enum_str, dp_cntl->prop.prop_enum.pp_enum[i]) == 0 )
+                    ^
+In file included from /home/luowq/tools/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/ctype.h:4:0,
+                 from /mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_cloud_types.h:17,
+                 from ../../../project/tuya/tuya_user/xr809_common/include/tuya_device.h:9,
+                 from ../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:7:
+/home/luowq/tools/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/string.h:28:6: note: expected 'const char *' but argument is of type 'UCHAR_T *'
+ int  _EXFUN(strcmp,(const char *, const char *));
+      ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1581:13: warning: unused variable 'enum_id' [-Wunused-variable]
+     UCHAR_T enum_id = 0;
+             ^
+In file included from /mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/adapter_platform.h:23:0,
+                 from ../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:8:
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'ty_datapoint_upload_proc':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1887:46: warning: pointer targets in passing argument 1 of 'cJSON_CreateString' differ in signedness [-Wpointer-sign]
+       cJSON_AddStringToObject(root_test,dpid,pData);
+                                              ^
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/utilities/cJSON.h:137:103: note: in definition of macro 'cJSON_AddStringToObject'
+ #define cJSON_AddStringToObject(object,name,s) cJSON_AddItemToObject(object, name, cJSON_CreateString(s))
+                                                                                                       ^
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/utilities/cJSON.h:93:15: note: expected 'const char *' but argument is of type 'UCHAR_T *'
+ extern cJSON *cJSON_CreateString(const char *string);
+               ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1900:50: warning: pointer targets in passing argument 1 of 'cJSON_CreateString' differ in signedness [-Wpointer-sign]
+           cJSON_AddStringToObject(root_test,dpid,ty_get_enum_str(dp_cntl, dp_data->data[0]));
+                                                  ^
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/utilities/cJSON.h:137:103: note: in definition of macro 'cJSON_AddStringToObject'
+ #define cJSON_AddStringToObject(object,name,s) cJSON_AddItemToObject(object, name, cJSON_CreateString(s))
+                                                                                                       ^
+/mnt/hgfs/a_sdk_code/platform_sdk/wifisdk_for_xr809/project/tuya/gcc/../../../src/tuya_iot/include/tuya_adapter/utilities/cJSON.h:93:15: note: expected 'const char *' but argument is of type 'UCHAR_T *'
+ extern cJSON *cJSON_CreateString(const char *string);
+               ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1946:2: warning: implicit declaration of function 'sf_obj_dp_report_async' [-Wimplicit-function-declaration]
+  op_ret = sf_obj_dp_report_async(get_gw_cntl()->dev->dev_if.id,out,false);
+  ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1763:22: warning: unused variable 'dpdata' [-Wunused-variable]
+     CHAR_T dpid[10], dpdata[10],*out = NULL;
+                      ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'dev_obj_dp_cb':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2438:31: warning: passing argument 1 of 'ty_obj_datapoint_proc' discards 'const' qualifier from pointer target type
+         ty_obj_datapoint_proc(&dp->dps[i]);
+                               ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1686:13: note: expected 'struct TY_OBJ_DP_S *' but argument is of type 'const struct TY_OBJ_DP_S *'
+ STATIC VOID ty_obj_datapoint_proc(TY_OBJ_DP_S *obj_dp)
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'dev_raw_dp_cb':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2457:27: warning: passing argument 1 of 'ty_raw_datapoint_proc' discards 'const' qualifier from pointer target type
+     ty_raw_datapoint_proc(dp);
+                           ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1659:13: note: expected 'struct TY_RECV_RAW_DP_S *' but argument is of type 'const struct TY_RECV_RAW_DP_S *'
+ STATIC VOID ty_raw_datapoint_proc(TY_RECV_RAW_DP_S *raw_dp)//need to improve lql
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'dev_ug_process_cb':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2691:73: error: expected statement before ')' token
+     if((send_len >= dev_proc.file_size - dev_proc.send_len) && send_len)) {
+                                                                         ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2665:18: warning: unused variable 'j' [-Wunused-variable]
+     UINT_T i = 0,j = 0;
+                  ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2665:12: warning: unused variable 'i' [-Wunused-variable]
+     UINT_T i = 0,j = 0;
+            ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2664:24: warning: unused variable 'send_cnt' [-Wunused-variable]
+     UINT_T send_len= 0,send_cnt = 0;
+                        ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: In function 'device_differ_init':
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:2768:13: warning: 'return' with no value, in function returning non-void
+             return;
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c: At top level:
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:128:13: warning: 'ty_datapoint_proc' declared 'static' but never defined [-Wunused-function]
+ STATIC VOID ty_datapoint_proc(cJSON *root);
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:905:13: warning: 'syn_weather_data' defined but not used [-Wunused-function]
+ STATIC VOID syn_weather_data(OPERATE_RET result,CHAR_T *param)
+             ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1071:20: warning: 'get_pub_param' defined but not used [-Wunused-function]
+ STATIC OPERATE_RET get_pub_param(IN TY_FRAME_S *p_fr, OUT CHAR_T **ppout)
+                    ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1359:14: warning: 'recv_prod_test' defined but not used [-Wunused-function]
+ STATIC INT_T recv_prod_test(VOID)
+              ^
+../../../project/tuya/tuya_user/xr809_common/src/tuya_device.c:1578:14: warning: 'ty_get_enum_id' defined but not used [-Wunused-function]
+ STATIC INT_T ty_get_enum_id(UCHAR_T dpid, UCHAR_T *enum_str)
+              ^
+make: *** [../../../project/tuya/tuya_user/xr809_common/src/tuya_device.o] Error 1
